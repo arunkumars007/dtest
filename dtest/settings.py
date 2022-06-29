@@ -84,8 +84,9 @@ DATABASES = {
     }
 }
 
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+DATABASES['default'] = dj_database_url.config(
+    default='postgres://kmsoaoybazzfww:6bfac8c9558fac515f9a0c138194b12c836faff07bb5b169ec21c12b24d29e7c@ec2-54-211-255-161.compute-1.amazonaws.com:5432/d30mo1jmnhooh7',
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -111,13 +112,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = False
+USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
