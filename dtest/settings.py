@@ -77,16 +77,26 @@ WSGI_APPLICATION = 'dtest.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+# DATABASES['default'] = dj_database_url.config(
+#     default='postgres://kmsoaoybazzfww:6bfac8c9558fac515f9a0c138194b12c836faff07bb5b169ec21c12b24d29e7c@ec2-54-211-255-161.compute-1.amazonaws.com:5432/d30mo1jmnhooh7',
+# )
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd30mo1jmnhooh7',
+        'USER': 'kmsoaoybazzfww',
+        'PASSWORD': '6bfac8c9558fac515f9a0c138194b12c836faff07bb5b169ec21c12b24d29e7c',
+        'HOST': 'ec2-54-211-255-161.compute-1.amazonaws.com',
+        'PORT': '',
     }
 }
-
-DATABASES['default'] = dj_database_url.config(
-    default='postgres://kmsoaoybazzfww:6bfac8c9558fac515f9a0c138194b12c836faff07bb5b169ec21c12b24d29e7c@ec2-54-211-255-161.compute-1.amazonaws.com:5432/d30mo1jmnhooh7',
-)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -112,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Kolkata'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
